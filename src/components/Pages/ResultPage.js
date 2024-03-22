@@ -56,7 +56,7 @@ const ResultPage = ({route}) => {
             headers: {
               'Content-Type': 'application/json',
               //1019 Api Tokens
-              'X-API-Key': 'MP1019N9L4PQY402GR1WDT7HSYXGBDRUHNL5',
+              'X-API-Key': '',
             },
           },
         );
