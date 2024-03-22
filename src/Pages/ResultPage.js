@@ -95,10 +95,7 @@ const ResultPage = ({route}) => {
           </>
         ) : (
           <TouchableOpacity onPress={handleButtonPress} style={styles.button}>
-            <Image
-              source={require('../../assets/logo.png')}
-              style={styles.logo}
-            />
+            <Image source={require('../assets/logo.png')} style={styles.logo} />
           </TouchableOpacity>
         )}
       </View>

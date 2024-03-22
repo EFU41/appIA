@@ -65,10 +65,11 @@ const PromtPage = ({route, navigation}) => {
         <TextInput
           style={styles.input}
           placeholder="prompt here"
-          placeholderTextColor="white"
           value={userInput}
           onChangeText={setUserInput}
+          placeholderTextColor="white"
         />
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             onPress={handleCameraPicker}
@@ -139,7 +140,6 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     textAlign: 'center',
-    placeholderTextColor: 'white',
   },
 });
 

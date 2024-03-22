@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomePage from './components/Pages/HomePage';
-import SelectModelPage from './components/Pages/SelectModelPage';
-import ModelAvatarPage from './components/Pages/ModelAvatarPage';
-import PromtPage from './components/Pages/PromtPage';
-import ResultPage from './components/Pages/ResultPage';
+import HomePage from './Pages/HomePage';
+import SelectModelPage from './Pages/SelectModelPage';
+import ModelAvatarPage from './Pages/ModelAvatarPage';
+import PromtPage from './Pages/PromtPage';
+import ResultPage from './Pages/ResultPage';
 
 const Stack = createNativeStackNavigator();
 

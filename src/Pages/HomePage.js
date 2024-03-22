@@ -18,7 +18,7 @@ const HomePage = ({navigation}) => {
       <StatusBar translucent backgroundColor="transparent" />
       <View style={styles.container}>
         <ImageBackground
-          source={require('../../assets/background.jpg')}
+          source={require('../assets/background.jpg')}
           style={styles.backgroundImage}>
           <View style={styles.contain}>
             <View style={styles.info}>

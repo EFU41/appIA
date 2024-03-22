@@ -53,7 +53,7 @@ const ModelAvatarPage = ({navigation}) => {
 
         <View style={styles.content}>
           <Image
-            source={require('../../assets/background.jpg')}
+            source={require('../assets/background.jpg')}
             style={styles.image}
           />
           <Text style={styles.headerText}>Magic Avatars</Text>
@@ -64,7 +64,7 @@ const ModelAvatarPage = ({navigation}) => {
           <TouchableOpacity style={styles.button} onPress={handleCameraPicker}>
             <Text style={styles.buttonText}>Try Now</Text>
             <Image
-              source={require('../../assets/camera.png')}
+              source={require('../assets/camera.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
