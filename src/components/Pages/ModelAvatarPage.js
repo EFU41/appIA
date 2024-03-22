@@ -9,12 +9,14 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const PageThree = ({navigation}) => {
+const ModelAvatarPage = ({navigation}) => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [width, setWidth] = useState(350);
-  const [height, setHeight] = useState(400);
+
+  const width = 350;
+  const height = 400;
+
   const backPage = () => {
-    navigation.navigate('page2');
+    navigation.navigate('SelectModelPage');
   };
 
   const handleCameraPicker = () => {
@@ -33,7 +35,7 @@ const PageThree = ({navigation}) => {
 
   useEffect(() => {
     if (selectedImage) {
-      navigation.navigate('page4', {selectedImage: selectedImage});
+      navigation.navigate('PromtPage', {selectedImage: selectedImage});
     }
   }, [selectedImage, navigation]);
   return (
@@ -51,7 +53,7 @@ const PageThree = ({navigation}) => {
 
         <View style={styles.content}>
           <Image
-            source={require('../assets/background.jpg')}
+            source={require('../../assets/background.jpg')}
             style={styles.image}
           />
           <Text style={styles.headerText}>Magic Avatars</Text>
@@ -62,7 +64,7 @@ const PageThree = ({navigation}) => {
           <TouchableOpacity style={styles.button} onPress={handleCameraPicker}>
             <Text style={styles.buttonText}>Try Now</Text>
             <Image
-              source={require('../assets/camera.png')}
+              source={require('../../assets/camera.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 400,
+    height: '65%',
     marginVertical: 20,
     borderRadius: 50,
   },
@@ -138,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PageThree;
+export default ModelAvatarPage;

@@ -9,16 +9,16 @@ import {
   StatusBar,
 } from 'react-native';
 
-const PageOne = ({navigation}) => {
+const HomePage = ({navigation}) => {
   const nextPage = () => {
-    navigation.navigate('page2');
+    navigation.navigate('SelectModelPage');
   };
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <StatusBar translucent backgroundColor="transparent" />
       <View style={styles.container}>
         <ImageBackground
-          source={require('../assets/background.jpg')}
+          source={require('../../assets/background.jpg')}
           style={styles.backgroundImage}>
           <View style={styles.contain}>
             <View style={styles.info}>
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PageOne;
+export default HomePage;

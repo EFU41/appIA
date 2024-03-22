@@ -6,17 +6,18 @@ import {
   ScrollView,
   Image,
   ActivityIndicator,
+  TouchableOpacity,
+  Linking,
 } from 'react-native';
 import axios from 'axios';
 
-const PageFive = ({route, navigation}) => {
+const ResultPage = ({route}) => {
   const {imageUri, userInput} = route.params;
+  const [imagUrl, setImageUrl] = useState(imageUri);
   const [loading, setLoading] = useState(true);
-  const [responseText, setResponseText] = useState('');
   const [outputUrl, setOutputUrl] = useState('');
-  const [input, setInput] = useState(
-    'analog film photo of a man. faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage, masterpiece, best quality',
-  );
+  const input =
+    'analog film photo of a man. faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage, masterpiece, best quality';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,15 +56,15 @@ const PageFive = ({route, navigation}) => {
             headers: {
               'Content-Type': 'application/json',
               //1019 Api Tokens
-              'X-API-Key': '',
+              'X-API-Key': 'MP1019N9L4PQY402GR1WDT7HSYXGBDRUHNL5',
             },
           },
         );
-        setResponseText(JSON.stringify(response.data));
+        console.log(JSON.stringify(response.data));
         const outputUrl = response.data.output[0];
         setOutputUrl(outputUrl);
       } catch (error) {
-        setResponseText(`Error: ${error.message}`);
+        console.log(`Error: ${error.message}`);
       } finally {
         setLoading(false);
       }
@@ -74,15 +75,18 @@ const PageFive = ({route, navigation}) => {
 
   useEffect(() => {
     if (outputUrl !== '') {
-      navigation.navigate('page6', {outputUrl});
-      setResponseText('');
+      setImageUrl(outputUrl);
     }
   }, [outputUrl]);
+
+  const handleButtonPress = () => {
+    Linking.openURL('https://1019.io/');
+  };
 
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.container}>
-        <Image source={{uri: imageUri}} style={styles.image} />
+        <Image source={{uri: imagUrl}} style={styles.image} />
         {loading ? (
           <>
             <ActivityIndicator size="large" color="#ffffff" />
@@ -90,7 +94,12 @@ const PageFive = ({route, navigation}) => {
             <Text style={styles.responseText}>Our AI getting ready</Text>
           </>
         ) : (
-          <Text style={styles.responseText}>{responseText}</Text>
+          <TouchableOpacity onPress={handleButtonPress} style={styles.button}>
+            <Image
+              source={require('../../assets/logo.png')}
+              style={styles.logo}
+            />
+          </TouchableOpacity>
         )}
       </View>
     </ScrollView>
@@ -118,6 +127,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '50%',
   },
+  button: {
+    marginTop: 50,
+    width: 235,
+    height: 90,
+    borderRadius: 50,
+  },
+  logo: {
+    width: 235,
+    height: 90,
+    borderRadius: 50,
+  },
 });
 
-export default PageFive;
+export default ResultPage;

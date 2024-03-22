@@ -8,9 +8,9 @@ import {
   Image,
 } from 'react-native';
 
-const PageTwo = ({navigation}) => {
+const SelectModelPage = ({navigation}) => {
   const nextPage = () => {
-    navigation.navigate('page3');
+    navigation.navigate('ModelAvatarPage');
   };
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PageTwo;
+export default SelectModelPage;

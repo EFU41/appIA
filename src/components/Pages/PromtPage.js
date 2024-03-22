@@ -10,12 +10,13 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const PageFour = ({route, navigation}) => {
+const PromtPage = ({route, navigation}) => {
   const {selectedImage} = route.params;
-  const [width, setWidth] = useState(350);
-  const [height, setHeight] = useState(400);
   const [imageUri, setImageUri] = useState(selectedImage);
   const [userInput, setUserInput] = useState('');
+
+  const width = 350;
+  const height = 400;
 
   const handleCameraPicker = () => {
     ImagePicker.openCamera({
@@ -25,8 +26,6 @@ const PageFour = ({route, navigation}) => {
     })
       .then(image => {
         setImageUri(image.path);
-        setHeight(height);
-        setWidth(width);
       })
       .catch(error => {
         console.log(error);
@@ -49,7 +48,7 @@ const PageFour = ({route, navigation}) => {
         .then(response => response.json())
         .then(data => {
           console.log('Uploaded Image URL:', data.url);
-          navigation.navigate('page5', {imageUri: data.url, userInput});
+          navigation.navigate('ResultPage', {imageUri: data.url, userInput});
         })
         .catch(error => {
           console.error('Error uploading image:', error);
@@ -144,4 +143,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PageFour;
+export default PromtPage;

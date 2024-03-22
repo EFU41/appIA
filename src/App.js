@@ -1,12 +1,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import PageOne from './components/page1';
-import PageTwo from './components/page2';
-import PageThree from './components/page3';
-import PageFour from './components/page4';
-import PageFive from './components/page5';
-import PageSix from './components/page6';
+import HomePage from './components/Pages/HomePage';
+import SelectModelPage from './components/Pages/SelectModelPage';
+import ModelAvatarPage from './components/Pages/ModelAvatarPage';
+import PromtPage from './components/Pages/PromtPage';
+import ResultPage from './components/Pages/ResultPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,33 +14,28 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="page1"
-          component={PageOne}
+          name="HomePage"
+          component={HomePage}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="page2"
-          component={PageTwo}
+          name="SelectModelPage"
+          component={SelectModelPage}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="page3"
-          component={PageThree}
+          name="ModelAvatarPage"
+          component={ModelAvatarPage}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="page4"
-          component={PageFour}
+          name="PromtPage"
+          component={PromtPage}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="page5"
-          component={PageFive}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="page6"
-          component={PageSix}
+          name="ResultPage"
+          component={ResultPage}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
